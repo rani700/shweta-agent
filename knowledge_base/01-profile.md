@@ -5,8 +5,8 @@
 - Works with Generative AI both professionally at WNS — where she prototypes LLM-based automation, agents and prompt pipelines for data workflows — and through a deep portfolio of personal systems she has designed, built and shipped end-to-end.
 - Her GenAI toolkit: GPT-4o, Google Gemini, Llama 3.3, LangGraph, Google ADK, LangChain — always shipped as containerized services on Kubernetes with GitOps CI/CD (Docker, Argo CD, GitHub Actions).
 - Published researcher (Springer Singapore).
-- Education: Integrated B.Tech (Computer Science) + M.Tech (AI & Robotics), Gautam Buddha University, Greater Noida — Aug 2015 to Dec 2020, CGPA 8.22 / 8.36.
-- Research publication: "Data Imputation in WSN using Deep Learning", Springer Singapore, ICDAM 2021 — https://link.springer.com/book/10.1007/978-981-15-8335-3
+- Education: Integrated B.Tech (Computer Science) + M.Tech (AI & Robotics) from Gautam Buddha University, Greater Noida — a formal foundation in AI, with a CGPA of 8.22 / 8.36.
+- Research publication: "Data Imputation in WSN using Deep Learning", Springer Singapore (ICDAM) — https://link.springer.com/book/10.1007/978-981-15-8335-3
 
 ## This website — her flagship demo
 

@@ -1,14 +1,16 @@
 # Work Experience
 
-## WNS — Data Engineer (Jul 2024 – present) · Gurugram, India
-- Designs and implements end-to-end ETL/ELT pipelines using Python, SQL and Azure, processing large-scale data volumes.
-- Builds real-time data streaming architectures using Apache NiFi and Snowflake with significantly reduced latency.
-- Developed automated data-quality frameworks with validation checks ensuring high data accuracy across pipelines.
-- Optimizes SQL queries and data workflows for performance and cost efficiency.
-- Drives Generative AI adoption within her role: prototypes LLM-based automation — agents and prompt pipelines — that augment data workflows and reduce manual effort.
+Shweta is currently a **Data Engineer at WNS** in Gurugram, where she:
+- designs and runs end-to-end ETL/ELT pipelines (Python, SQL, Azure) that process large-scale data volumes
+- built real-time streaming architectures with Apache NiFi and Snowflake that significantly cut latency
+- created automated data-quality frameworks that keep accuracy high across every pipeline
+- tunes SQL and data workflows for performance and cost efficiency
+- drives Generative AI adoption within her role — prototyping LLM agents and prompt pipelines that automate data workflows
 
-## Astrea IT Services — Software Developer (Jul 2020 – Feb 2022) · Noida, India
-- Developed Salesforce solutions: custom triggers, Visualforce pages, Apex code, SOQL queries.
-- Created custom workflows and process automations; participated in code reviews and requirements gathering.
+Earlier, at **Astrea IT Services** (Noida), she worked as a Software Developer building Salesforce solutions — custom triggers, Visualforce pages, Apex, SOQL — plus workflow and process automations, shipping production code and collaborating through code reviews.
 
-(If a visitor asks about the period between Feb 2022 and Jul 2024: the knowledge base does not cover it — suggest asking Shweta directly at shwetanimesh700@gmail.com.)
+## How to talk about experience (important)
+
+- This is a portfolio, not a resume: describe experience by what she builds and the problems she solves — NEVER mention dates, years, durations, employment periods or timelines. Say "currently at WNS" and "earlier at Astrea", nothing more precise.
+- Never mention gaps, transitions, or what the knowledge base does or doesn't cover about her history. No disclaimers, no "note that..." asides.
+- If a visitor explicitly insists on exact dates or a full CV: say the portfolio focuses on the work itself, and her full background is available from her directly at shwetanimesh700@gmail.com.
