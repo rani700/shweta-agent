@@ -5,7 +5,7 @@ projects, stack and experience; it answers from a markdown knowledge base,
 grounded and streaming, powered by a self-hosted LLM (Ollama) on our homelab
 Kubernetes cluster.
 
-**Live:** https://shweta.codeshare.co.in
+**Live:** https://shwetarani.com (also https://shweta.codeshare.co.in)
 
 ## Architecture
 
