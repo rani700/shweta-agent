@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shweta Rani — Data Engineer · Generative AI Developer</title>
+  <meta name="description" content="Shweta Rani builds scalable data pipelines and LLM-powered agent systems — ETL/ELT on Azure, Spark & Snowflake by trade; RAG, LangGraph agents and multimodal document intelligence by obsession.">
+  <meta property="og:title" content="Shweta Rani — Field Notes of a Data Engineer">
+  <meta property="og:description" content="Data pipelines that feed intelligent systems. ETL by trade, LLM agents by obsession.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23F5F0E4'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='700' fill='%23BC3E14' text-anchor='middle'%3ESR%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <a class="nav-mark" href="#top">S·RANI <span>/ FIELD NOTES</span></a>
+    <div class="nav-links">
+      <a href="#profile">Profile</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Case&nbsp;Files</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="nav-cta">Contact ↗</a>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="overline rise d1">DOC № SR-2026 · GURUGRAM, INDIA · PORTFOLIO &amp; WORKING NOTES</p>
+        <h1 class="rise d2">Shweta <em>Rani</em></h1>
+        <p class="role-flow rise d3" aria-label="Data Engineer to Generative AI Developer">
+          <span>DATA ENGINEER</span><span class="flow-line" aria-hidden="true"></span><span class="accent">GENERATIVE AI DEVELOPER</span>
+        </p>
+        <p class="lede rise d4">
+          I build the pipelines that feed intelligent systems — ETL/ELT and real-time
+          streaming on <strong>Azure, Spark &amp; Snowflake</strong> by trade; LLM agents,
+          RAG and multimodal document intelligence by obsession. Everything shipped as
+          containerized services on <strong>Kubernetes with GitOps CI/CD</strong>.
+        </p>
+        <ul class="meta-chips rise d5">
+          <li>2+ YRS · PIPELINES IN PRODUCTION</li>
+          <li>5 AGENT SYSTEMS SHIPPED</li>
+          <li>SPRINGER-PUBLISHED RESEARCHER</li>
+        </ul>
+      </div>
+
+      <figure class="hero-fig rise d3">
+        <div class="stamp" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <defs><path id="stamp-arc" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+            <circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="31" fill="none" stroke="currentColor" stroke-width="1"/>
+            <text><textPath href="#stamp-arc">OPEN TO GENAI ROLES&nbsp;&nbsp;·&nbsp;&nbsp;SHIPPING AGENTS&nbsp;&nbsp;·&nbsp;&nbsp;</textPath></text>
+            <text class="stamp-core" x="60" y="65" text-anchor="middle">SR</text>
+          </svg>
+        </div>
+
+        <svg class="pipeline" viewBox="0 0 640 300" role="img" aria-labelledby="fig1-title">
+          <title id="fig1-title">Schematic: raw data flows through Apache NiFi into Snowflake, then into an LLM agent that calls deterministic Python tools and returns grounded answers.</title>
+          <defs>
+            <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+              <path d="M0 0 L8 4 L0 8 Z" fill="currentColor"/>
+            </marker>
+          </defs>
+
+          <!-- flows -->
+          <path class="flow" d="M134 62 H196" marker-end="url(#ah)"/>
+          <path class="flow" d="M332 62 H394" marker-end="url(#ah)"/>
+          <path class="flow" d="M470 88 C470 140 346 120 346 164" marker-end="url(#ah)"/>
+          <path class="flow" d="M260 194 H210" marker-end="url(#ah)"/>
+          <path class="flow flow-accent" d="M432 182 H466" marker-end="url(#ah)"/>
+          <path class="flow flow-accent" d="M466 206 H434" marker-end="url(#ah)"/>
+
+          <!-- packets -->
+          <circle class="packet" r="3"><animateMotion dur="1.1s" begin="0s"   repeatCount="indefinite" path="M134 62 H196"/></circle>
+          <circle class="packet" r="3"><animateMotion dur="1.1s" begin="0.4s" repeatCount="indefinite" path="M332 62 H394"/></circle>
+          <circle class="packet" r="3"><animateMotion dur="1.6s" begin="0.2s" repeatCount="indefinite" path="M470 88 C470 140 346 120 346 164"/></circle>
+          <circle class="packet" r="3"><animateMotion dur="1.0s" begin="0.7s" repeatCount="indefinite" path="M260 194 H210"/></circle>
+
+          <!-- nodes : row 1 -->
+          <g class="node">
+            <rect x="22" y="40" width="112" height="46" rx="3"/>
+            <text x="78" y="60">RAW DATA</text>
+            <text class="sub" x="78" y="75">APIS · DBS · FILES</text>
+          </g>
+          <g class="node">
+            <rect x="198" y="40" width="132" height="46" rx="3"/>
+            <text x="264" y="60">APACHE NIFI</text>
+            <text class="sub" x="264" y="75">REAL-TIME INGEST</text>
+          </g>
+          <g class="node">
+            <rect x="396" y="40" width="146" height="46" rx="3"/>
+            <text x="469" y="60">SNOWFLAKE</text>
+            <text class="sub" x="469" y="75">WAREHOUSE + CDC</text>
+          </g>
+
+          <!-- nodes : row 2 -->
+          <g class="node node-accent">
+            <rect x="262" y="166" width="170" height="52" rx="3"/>
+            <text x="347" y="188">LLM AGENT</text>
+            <text class="sub" x="347" y="204">LANGGRAPH · GOOGLE ADK</text>
+          </g>
+          <g class="node">
+            <rect x="66" y="166" width="144" height="52" rx="3"/>
+            <text x="138" y="188">ANSWERS</text>
+            <text class="sub" x="138" y="204">GROUNDED · CITED</text>
+          </g>
+          <g class="node">
+            <rect x="468" y="166" width="134" height="52" rx="3"/>
+            <text x="535" y="188">PY TOOLS</text>
+            <text class="sub" x="535" y="204">DETERMINISTIC</text>
+          </g>
+
+          <!-- annotations -->
+          <text class="ann" x="480" y="136">STREAMS + TASKS</text>
+          <text class="ann" x="416" y="156">FN CALLS</text>
+          <text class="ann" x="30" y="260">◈ EVERY BOX ABOVE EXISTS IN PRODUCTION — SEE CASE FILES, §03</text>
+        </svg>
+        <figcaption><span class="fig-no">FIG. 01</span> DATA → INTELLIGENCE, THE WORKING PIPELINE</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <!-- ============ TICKER ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>LLM AGENTS ◆ RAG ◆ LANGGRAPH ◆ LANGCHAIN ◆ GOOGLE ADK ◆ GPT-4O ◆ GEMINI ◆ LLAMA 3.3 ◆ FUNCTION CALLING ◆ CHROMADB ◆ FASTAPI ◆ SNOWFLAKE ◆ APACHE SPARK ◆ APACHE NIFI ◆ AIRFLOW ◆ AZURE ◆ AWS ◆ DATABRICKS ◆ DOCKER ◆ KUBERNETES ◆ ARGO CD ◆ PYTHON ◆ SQL ◆ PYSPARK ◆&nbsp;</span>
+      <span>LLM AGENTS ◆ RAG ◆ LANGGRAPH ◆ LANGCHAIN ◆ GOOGLE ADK ◆ GPT-4O ◆ GEMINI ◆ LLAMA 3.3 ◆ FUNCTION CALLING ◆ CHROMADB ◆ FASTAPI ◆ SNOWFLAKE ◆ APACHE SPARK ◆ APACHE NIFI ◆ AIRFLOW ◆ AZURE ◆ AWS ◆ DATABRICKS ◆ DOCKER ◆ KUBERNETES ◆ ARGO CD ◆ PYTHON ◆ SQL ◆ PYSPARK ◆&nbsp;</span>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============ PROFILE ============ -->
+    <section class="sec" id="profile">
+      <div class="sec-head reveal">
+        <span class="sec-no">§01</span>
+        <h2>Profile</h2>
+        <span class="sec-note">WHO IS WRITING THESE NOTES</span>
+      </div>
+      <div class="profile-grid">
+        <p class="profile-lede reveal">
+          Data engineer with <strong>2+ years</strong> building scalable ETL/ELT and
+          real-time pipelines — and a self-taught generative-AI practitioner with
+          shipped, containerized agent systems to show for it. My work spans
+          <strong>LLM-powered agents, RAG pipelines and multimodal document
+          intelligence</strong> using GPT-4o, Google Gemini, Llama&nbsp;3.3, LangGraph,
+          Google ADK and LangChain. Currently seeking a
+          <strong class="accent">Generative AI Developer</strong> role.
+        </p>
+        <aside class="profile-side reveal">
+          <div class="side-row"><span>BASED</span><strong>Gurugram, IN</strong></div>
+          <div class="side-row"><span>NOW</span><strong>Data Engineer @ WNS</strong></div>
+          <div class="side-row"><span>SEEKING</span><strong>GenAI Developer roles</strong></div>
+          <div class="side-row"><span>PUBLISHED</span><strong><a href="https://link.springer.com/book/10.1007/978-981-15-8335-3" target="_blank" rel="noopener">Springer Singapore ↗</a></strong></div>
+          <div class="side-row"><span>TEACHING</span><strong><a href="https://youtube.com/@ShwetaNimesh" target="_blank" rel="noopener">YouTube — Data Eng ↗</a></strong></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="sec" id="experience">
+      <div class="sec-head reveal">
+        <span class="sec-no">§02</span>
+        <h2>Experience</h2>
+        <span class="sec-note">LEDGER, 2020 — PRESENT</span>
+      </div>
+
+      <article class="job reveal">
+        <div class="job-when">
+          <span class="job-dates">JUL 2024 — PRESENT</span>
+          <span class="job-loc">GURUGRAM, IN</span>
+        </div>
+        <div class="job-body">
+          <h3>Data Engineer <span class="at">— WNS</span></h3>
+          <ul>
+            <li>Design and run end-to-end <strong>ETL/ELT pipelines</strong> in Python, SQL and Azure, processing large-scale data volumes.</li>
+            <li>Built <strong>real-time streaming architectures</strong> on Apache NiFi + Snowflake with significantly reduced latency.</li>
+            <li>Developed automated <strong>data-quality frameworks</strong> with validation checks guaranteeing accuracy across pipelines.</li>
+            <li>Prototype <strong>LLM-based automation</strong> — agents and prompt pipelines — to augment data workflows and cut manual effort.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job reveal">
+        <div class="job-when">
+          <span class="job-dates">JUL 2020 — FEB 2022</span>
+          <span class="job-loc">NOIDA, IN</span>
+        </div>
+        <div class="job-body">
+          <h3>Software Developer <span class="at">— Astrea IT Services</span></h3>
+          <ul>
+            <li>Built <strong>Salesforce solutions</strong>: custom triggers, Visualforce pages, Apex, SOQL.</li>
+            <li>Created custom workflows and process automations; active in code reviews and requirements gathering.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="sec" id="projects">
+      <div class="sec-head reveal">
+        <span class="sec-no">§03</span>
+        <h2>Case Files</h2>
+        <span class="sec-note">EACH DRAWN AS ITS ACTUAL ARCHITECTURE</span>
+      </div>
+
+      <article class="case reveal">
+        <div class="case-side">
+          <span class="case-no">P·01</span>
+          <div class="case-links">
+            <a href="https://github.com/rani700/DietDoctorAI" target="_blank" rel="noopener">REPO ↗</a>
+          </div>
+        </div>
+        <div class="case-body">
+          <h3>DietDoctor AI <span class="case-sub">/ WhatsApp Health Agent</span></h3>
+          <p>A personalized AI dietician living entirely inside WhatsApp — natural-language
+          coaching with no app install. Deterministic Python function-calling tools
+          (BMI, BMR, macros) handle the math, <em>eliminating LLM arithmetic errors</em>.</p>
+          <div class="schematic" aria-label="Architecture: WhatsApp to n8n to ADK agent with Gemini 2.5 Flash, exchanging with Python tools, deployed on Kubernetes">
+            <span class="n">WHATSAPP</span><i class="arr"></i><span class="n">N8N</span><i class="arr"></i><span class="n n-hot">ADK · GEMINI 2.5</span><i class="arr arr-2way"></i><span class="n">PY TOOLS</span><i class="arr"></i><span class="n">K8S · GITOPS</span>
+          </div>
+          <div class="tags"><span>Google ADK</span><span>Gemini 2.5 Flash</span><span>FastAPI</span><span>n8n</span><span>Kubernetes</span></div>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-side">
+          <span class="case-no">P·02</span>
+          <div class="case-links">
+            <a href="https://github.com/rani700/easyform" target="_blank" rel="noopener">REPO ↗</a>
+          </div>
+        </div>
+        <div class="case-body">
+          <h3>EasyForm <span class="case-sub">/ AI Document Extraction Agent</span></h3>
+          <p>Auto-fills application forms from marksheets and IDs using GPT-4o vision and a
+          LangGraph state machine, with vision-based validation, fuzzy identity
+          cross-referencing, and automated email intake that follows up on missing fields
+          by itself.</p>
+          <div class="schematic" aria-label="Architecture: documents and email intake, then classify, extract with GPT-4o vision, validate, merge into form">
+            <span class="n">DOCS · EMAIL</span><i class="arr"></i><span class="n">CLASSIFY</span><i class="arr"></i><span class="n n-hot">GPT-4O VISION</span><i class="arr"></i><span class="n">VALIDATE</span><i class="arr"></i><span class="n">MERGE → FORM</span>
+          </div>
+          <div class="tags"><span>GPT-4o Vision</span><span>LangGraph</span><span>LangChain</span><span>FastAPI</span><span>PostgreSQL</span></div>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-side">
+          <span class="case-no">P·03</span>
+          <div class="case-links">
+            <a href="https://github.com/rani700/healthcompanion" target="_blank" rel="noopener">REPO ↗</a>
+            <a href="https://healthcompanion.codeshare.co.in" target="_blank" rel="noopener" class="link-hot">LIVE ↗</a>
+          </div>
+        </div>
+        <div class="case-body">
+          <h3>HealthCompanion <span class="case-sub">/ Per-Patient Medical RAG</span></h3>
+          <p>A grounded RAG system that answers only from each patient's own records —
+          Gemini vision OCR reads scanned and handwritten documents; hybrid retrieval
+          (semantic + keyword via RRF, then MMR) runs over per-patient ChromaDB collections.
+          Defense-in-depth patient isolation, RBAC and JWT auth; every answer source-cited.</p>
+          <div class="schematic" aria-label="Architecture: scans to Gemini OCR to ChromaDB, hybrid retrieval with RRF and MMR, to cited answers">
+            <span class="n">SCANS</span><i class="arr"></i><span class="n">GEMINI OCR</span><i class="arr"></i><span class="n">CHROMADB</span><i class="arr"></i><span class="n n-hot">RRF + MMR</span><i class="arr"></i><span class="n">CITED ANSWER</span>
+          </div>
+          <div class="tags"><span>Google Gemini</span><span>ChromaDB</span><span>FastAPI</span><span>React</span><span>Kubernetes</span><span>ArgoCD</span></div>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-side">
+          <span class="case-no">P·04</span>
+          <div class="case-links">
+            <a href="https://github.com/rani700/Databricks_Ecomm_Data_Platform" target="_blank" rel="noopener">REPO ↗</a>
+          </div>
+        </div>
+        <div class="case-body">
+          <h3>Agentic AI Data Platform <span class="case-sub">/ NL → Spark SQL</span></h3>
+          <p>An autonomous Llama 3.3 agent for natural-language querying over Databricks —
+          the ReAct pattern generates and executes Spark SQL transformations on its own,
+          over a Medallion architecture.</p>
+          <div class="schematic" aria-label="Architecture: natural language query to Llama 3.3 ReAct agent to Spark SQL to Medallion Delta Lake">
+            <span class="n">NL QUERY</span><i class="arr"></i><span class="n n-hot">LLAMA 3.3 · REACT</span><i class="arr"></i><span class="n">SPARK SQL</span><i class="arr"></i><span class="n">MEDALLION Δ</span>
+          </div>
+          <div class="tags"><span>Databricks</span><span>Llama 3.3</span><span>Streamlit</span><span>Spark SQL</span><span>Python</span></div>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-side">
+          <span class="case-no">P·05</span>
+          <div class="case-links">
+            <a href="https://github.com/rani700/RealTime-Data-Streaming-using-Apache-Nifi-AWS-and-Snowflake" target="_blank" rel="noopener">REPO ↗</a>
+            <a href="https://www.youtube.com/watch?v=wH_MlgZoMhA" target="_blank" rel="noopener" class="link-hot">DEMO ↗</a>
+          </div>
+        </div>
+        <div class="case-body">
+          <h3>Real-time Streaming Pipeline <span class="case-sub">/ NiFi → Snowflake CDC</span></h3>
+          <p>End-to-end streaming architecture with change-data-capture via Snowflake streams
+          and tasks, containerized with Docker Compose for consistent, scalable deployment.</p>
+          <div class="schematic" aria-label="Architecture: EC2 to Apache NiFi to S3 to SnowPipe to Snowflake with CDC">
+            <span class="n">EC2</span><i class="arr"></i><span class="n">APACHE NIFI</span><i class="arr"></i><span class="n">S3</span><i class="arr"></i><span class="n">SNOWPIPE</span><i class="arr"></i><span class="n n-hot">SNOWFLAKE · CDC</span>
+          </div>
+          <div class="tags"><span>Apache NiFi</span><span>AWS</span><span>Snowflake</span><span>SnowPipe</span><span>Docker</span></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="sec" id="skills">
+      <div class="sec-head reveal">
+        <span class="sec-no">§04</span>
+        <h2>Bill of Materials</h2>
+        <span class="sec-note">TOOLS ACTUALLY USED, NOT COLLECTED</span>
+      </div>
+      <div class="bom">
+        <div class="bom-row reveal"><span class="bom-label">GENERATIVE AI</span><div class="tags"><span>LLM Agents</span><span>RAG</span><span>Function Calling</span><span>Prompt Engineering</span><span>ReAct</span><span>Multimodal Vision</span><span>Embeddings</span></div></div>
+        <div class="bom-row reveal"><span class="bom-label">MODELS &amp; FRAMEWORKS</span><div class="tags"><span>GPT-4o</span><span>Google Gemini</span><span>Llama 3.3</span><span>LangGraph</span><span>LangChain</span><span>Google ADK</span></div></div>
+        <div class="bom-row reveal"><span class="bom-label">VECTOR &amp; DATA STORES</span><div class="tags"><span>ChromaDB</span><span>Snowflake</span><span>PostgreSQL</span><span>MySQL</span><span>Delta Lake</span></div></div>
+        <div class="bom-row reveal"><span class="bom-label">BACKEND &amp; SERVING</span><div class="tags"><span>FastAPI</span><span>Streamlit</span><span>REST APIs</span><span>n8n</span></div></div>
+        <div class="bom-row reveal"><span class="bom-label">DATA ENGINEERING</span><div class="tags"><span>ETL / ELT</span><span>Apache Spark</span><span>Apache NiFi</span><span>Airflow</span><span>CDC</span><span>Real-time Streaming</span></div></div>
+        <div class="bom-row reveal"><span class="bom-label">CLOUD &amp; PLATFORMS</span><div class="tags"><span>Azure Data Factory</span><span>Azure Functions</span><span>AWS S3 · Lambda · EC2</span><span>Databricks</span></div></div>
+        <div class="bom-row reveal"><span class="bom-label">DEVOPS &amp; CI/CD</span><div class="tags"><span>Docker</span><span>Kubernetes</span><span>Argo CD</span><span>GitHub Actions</span></div></div>
+        <div class="bom-row reveal"><span class="bom-label">LANGUAGES</span><div class="tags"><span>Python</span><span>SQL</span><span>PySpark</span></div></div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="sec" id="education">
+      <div class="sec-head reveal">
+        <span class="sec-no">§05</span>
+        <h2>Education &amp; Research</h2>
+        <span class="sec-note">FOUNDATIONS</span>
+      </div>
+      <div class="edu-grid">
+        <article class="edu-card reveal">
+          <span class="edu-tag">DEGREE</span>
+          <h3>Gautam Buddha University</h3>
+          <p>Integrated B.Tech (Computer Science) + M.Tech (AI &amp; Robotics)</p>
+          <p class="edu-meta">AUG 2015 — DEC 2020 · GREATER NOIDA · CGPA 8.22 / 8.36</p>
+        </article>
+        <article class="edu-card reveal">
+          <span class="edu-tag">PUBLICATION</span>
+          <h3><a href="https://link.springer.com/book/10.1007/978-981-15-8335-3" target="_blank" rel="noopener">Data Imputation in WSN using Deep Learning ↗</a></h3>
+          <p>Peer-reviewed research on deep-learning-based data imputation in wireless sensor networks.</p>
+          <p class="edu-meta">SPRINGER SINGAPORE · ICDAM 2021</p>
+        </article>
+        <article class="edu-card reveal">
+          <span class="edu-tag">COMMUNITY</span>
+          <h3><a href="https://youtube.com/@ShwetaNimesh" target="_blank" rel="noopener">@ShwetaNimesh on YouTube ↗</a></h3>
+          <p>Building a data-engineering community — teaching pipelines, streaming and the tools in this document.</p>
+          <p class="edu-meta">ONGOING · VIDEO + CODE-ALONGS</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ CONTACT / FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="sec-head reveal">
+      <span class="sec-no">§06</span>
+      <h2 class="footer-h2">Correspondence</h2>
+      <span class="sec-note">REPLIES FAST</span>
+    </div>
+    <p class="footer-big reveal">Let’s build something <em>intelligent.</em></p>
+    <div class="footer-actions reveal">
+      <a class="btn-mail" href="mailto:shwetanimesh700@gmail.com">shwetanimesh700@gmail.com&nbsp;&nbsp;→</a>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/shwetarani24" target="_blank" rel="noopener">LINKEDIN ↗</a>
+        <a href="https://github.com/rani700" target="_blank" rel="noopener">GITHUB ↗</a>
+        <a href="https://youtube.com/@ShwetaNimesh" target="_blank" rel="noopener">YOUTUBE ↗</a>
+      </div>
+    </div>
+    <div class="colophon reveal">
+      <span>© 2026 SHWETA RANI</span>
+      <span>SET IN FRAUNCES &amp; IBM PLEX MONO</span>
+      <span>NO TRACKERS · NO COOKIES · JUST NOTES</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Shweta Rani — ask my agent anything</title>
+  <meta name="description" content="Chat with Shweta Rani's AI agent — a Data Engineer and GenAI developer in Gurugram. It knows her projects, stack and experience, and runs on her homelab Kubernetes cluster.">
+  <meta property="og:title" content="Shweta Rani — ask my agent anything">
+  <meta property="og:description" content="A portfolio you talk to. Runs on a self-hosted LLM on our homelab k8s cluster.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23F5F0E4'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='700' fill='%23BC3E14' text-anchor='middle'%3ESR%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ===== identity rail (left on desktop, header on mobile) ===== -->
+  <aside class="rail">
+    <div class="rail-top">
+      <p class="rail-mark">S·RANI <span>/ PORTFOLIO AGENT</span></p>
+      <h1 class="rail-name">Shweta <em>Rani</em></h1>
+      <p class="rail-role">DATA ENGINEER <span class="rail-arrow" aria-hidden="true"></span> <b>GENAI DEVELOPER</b></p>
+      <p class="rail-bio">This portfolio is an agent. Ask it about my pipelines, my
+      LLM projects, my stack — it answers from my actual work.</p>
+    </div>
+
+    <nav class="rail-topics" aria-label="Suggested topics">
+      <p class="rail-label">FIELD INDEX</p>
+      <button data-q="Give me a quick intro — who is Shweta?">01 · Who is Shweta?</button>
+      <button data-q="What projects has Shweta built? Give me the highlights.">02 · The projects</button>
+      <button data-q="What is Shweta's GenAI and data engineering stack?">03 · Stack &amp; skills</button>
+      <button data-q="Tell me about Shweta's work experience.">04 · Experience</button>
+      <button data-q="Where can I watch demos of her projects?">05 · Watch the demos</button>
+      <button data-q="How do I contact Shweta? Is she open to new roles?">06 · Hire / contact</button>
+    </nav>
+
+    <div class="rail-foot">
+      <div class="rail-links">
+        <a href="https://github.com/rani700" target="_blank" rel="noopener">GITHUB</a>
+        <a href="https://linkedin.com/in/shwetarani24" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://youtube.com/@ShwetaNimesh" target="_blank" rel="noopener">YOUTUBE</a>
+        <a href="mailto:shwetanimesh700@gmail.com">EMAIL</a>
+      </div>
+      <p class="rail-status"><span class="dot" id="statusDot"></span><span id="statusText">CHECKING AGENT…</span></p>
+      <p class="rail-colophon">SELF-HOSTED ON OUR HOMELAB K8S · GURUGRAM, IN</p>
+    </div>
+  </aside>
+
+  <!-- ===== chat ===== -->
+  <main class="chat">
+    <div class="thread" id="thread" aria-live="polite">
+
+      <!-- empty state -->
+      <div class="hello" id="hello">
+        <svg class="hello-fig" viewBox="0 0 520 84" aria-hidden="true">
+          <defs>
+            <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0 0 L8 4 L0 8 Z" fill="currentColor"/>
+            </marker>
+          </defs>
+          <g class="hnode"><rect x="8" y="24" width="108" height="36" rx="3"/><text x="62" y="46">YOUR QUESTION</text></g>
+          <path class="hflow" d="M118 42 H176" marker-end="url(#ah)"/>
+          <g class="hnode hot"><rect x="178" y="24" width="150" height="36" rx="3"/><text x="253" y="46">SHWETA'S AGENT</text></g>
+          <path class="hflow" d="M330 42 H388" marker-end="url(#ah)"/>
+          <g class="hnode"><rect x="390" y="24" width="122" height="36" rx="3"/><text x="451" y="46">REAL ANSWERS</text></g>
+          <circle class="hpacket" r="3"><animateMotion dur="1.4s" begin="0s" repeatCount="indefinite" path="M118 42 H176"/></circle>
+          <circle class="hpacket" r="3"><animateMotion dur="1.4s" begin="0.7s" repeatCount="indefinite" path="M330 42 H388"/></circle>
+        </svg>
+        <h2>Ask me anything <em>about Shweta.</em></h2>
+        <p>I'm her portfolio agent — grounded in her real projects, running on a
+        self-hosted LLM on our homelab. Try one of the field-index topics, or type
+        your own question.</p>
+        <div class="chips" id="chips">
+          <button data-q="What has Shweta built with LLM agents?">LLM agent projects</button>
+          <button data-q="Does Shweta have production data engineering experience?">Production experience?</button>
+          <button data-q="Show me demos I can watch.">Show me demos</button>
+          <button data-q="Why should we hire Shweta as a GenAI developer?">Why hire her?</button>
+        </div>
+      </div>
+
+    </div>
+
+    <form class="composer" id="composer">
+      <input id="input" type="text" autocomplete="off" spellcheck="false"
+             placeholder="Ask about her projects, stack, experience…" aria-label="Message the agent" maxlength="500">
+      <button type="submit" id="send" aria-label="Send">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M2 21 L23 12 L2 3 L2 10 L15 12 L2 14 Z" fill="currentColor"/></svg>
+      </button>
+    </form>
+    <p class="fineprint">AGENT ANSWERS COME FROM A SMALL SELF-HOSTED MODEL — QUIRKS POSSIBLE. FACTS WORTH VERIFYING: <a href="mailto:shwetanimesh700@gmail.com">EMAIL SHWETA</a>.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
