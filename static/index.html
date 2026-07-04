@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Shweta Rani — ask my agent anything</title>
-  <meta name="description" content="Chat with Shweta Rani's AI agent — a Data Engineer and GenAI developer in Gurugram. It knows her projects, stack and experience, and runs on her homelab Kubernetes cluster.">
+  <meta name="description" content="Chat with Shweta Rani's AI agent — data & GenAI engineer in Gurugram. It knows her projects, stack and experience, and runs on her homelab Kubernetes cluster.">
   <meta property="og:title" content="Shweta Rani — ask my agent anything">
-  <meta property="og:description" content="A portfolio you talk to. Runs on a self-hosted LLM on our homelab k8s cluster.">
+  <meta property="og:description" content="A portfolio you talk to. Self-hosted LLM, homelab Kubernetes, GitOps — she built the whole thing.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23F5F0E4'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='700' fill='%23BC3E14' text-anchor='middle'%3ESR%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,25 +18,44 @@
 
   <div class="grain" aria-hidden="true"></div>
 
-  <!-- ===== identity rail (left on desktop, header on mobile) ===== -->
+  <!-- ============ IDENTITY RAIL ============ -->
   <aside class="rail">
     <div class="rail-top">
       <p class="rail-mark">S·RANI <span>/ PORTFOLIO AGENT</span></p>
+      <div class="rail-stamp" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <defs><path id="arc" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+          <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1"/>
+          <text><textPath href="#arc">SELF-HOSTED&nbsp;&nbsp;·&nbsp;&nbsp;HOMELAB K8S&nbsp;&nbsp;·&nbsp;&nbsp;GITOPS&nbsp;&nbsp;·&nbsp;&nbsp;</textPath></text>
+          <text class="stamp-core" x="60" y="66" text-anchor="middle">SR</text>
+        </svg>
+      </div>
       <h1 class="rail-name">Shweta <em>Rani</em></h1>
       <p class="rail-role">DATA ENGINEERING <span class="rail-arrow" aria-hidden="true"></span> <b>GENERATIVE AI</b></p>
       <p class="rail-bio">I didn't write a portfolio — I built one. This agent runs
       on my own infrastructure and answers from my real work. Go ahead, interview it.</p>
+      <button class="rail-cta" data-open-drawer>
+        <span>BROWSE THE CASE FILES</span>
+        <i aria-hidden="true">→</i>
+      </button>
+      <ul class="rail-stats" aria-label="Highlights">
+        <li><b>5</b> AGENT SYSTEMS SHIPPED</li>
+        <li><b>★14</b> CV RESEARCH REPO</li>
+        <li><b>1</b> SPRINGER PAPER</li>
+      </ul>
     </div>
 
     <nav class="rail-topics" aria-label="Suggested topics">
       <p class="rail-label">FIELD INDEX</p>
-      <button data-q="Give me a quick intro — who is Shweta?">01 · Who is Shweta?</button>
-      <button data-q="What projects has Shweta built? Give me the highlights.">02 · The projects</button>
-      <button data-q="What is Shweta's GenAI and data engineering stack?">03 · Stack &amp; skills</button>
-      <button data-q="Tell me about Shweta's work experience.">04 · Experience</button>
-      <button data-q="Where can I watch demos of her projects?">05 · Watch the demos</button>
-      <button data-q="How does this agent itself work? Shweta built you, right?">06 · How this site works</button>
-      <button data-q="How do I get in touch with Shweta?">07 · Get in touch</button>
+      <button data-q="Give me a quick intro — who is Shweta?"><span>01</span> Who is Shweta?</button>
+      <button data-q="What projects has Shweta built? Give me the highlights."><span>02</span> The projects</button>
+      <button data-q="What is Shweta's GenAI and data engineering stack?"><span>03</span> Stack &amp; skills</button>
+      <button data-q="Tell me about Shweta's work experience."><span>04</span> Experience</button>
+      <button data-q="What ML and computer-vision work has she done beyond LLMs?"><span>05</span> Before the LLM era</button>
+      <button data-q="Where can I watch demos of her projects?"><span>06</span> Watch the demos</button>
+      <button data-q="How does this agent itself work? Shweta built you, right?"><span>07</span> How this site works</button>
+      <button data-q="How do I get in touch with Shweta?"><span>08</span> Get in touch</button>
     </nav>
 
     <div class="rail-foot">
@@ -51,25 +70,44 @@
     </div>
   </aside>
 
-  <!-- ===== chat ===== -->
+  <!-- ============ CHAT ============ -->
   <main class="chat">
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>LLM AGENTS ◆ RAG ◆ LANGGRAPH ◆ GOOGLE ADK ◆ GPT-4O ◆ GEMINI ◆ LLAMA 3.3 ◆ FUNCTION CALLING ◆ CHROMADB ◆ FASTAPI ◆ SNOWFLAKE ◆ SPARK ◆ NIFI ◆ AIRFLOW ◆ AZURE ◆ AWS ◆ DATABRICKS ◆ DOCKER ◆ KUBERNETES ◆ ARGO CD ◆ COMPUTER VISION ◆ PYTHON ◆ SQL ◆ PYSPARK ◆&nbsp;</span>
+        <span>LLM AGENTS ◆ RAG ◆ LANGGRAPH ◆ GOOGLE ADK ◆ GPT-4O ◆ GEMINI ◆ LLAMA 3.3 ◆ FUNCTION CALLING ◆ CHROMADB ◆ FASTAPI ◆ SNOWFLAKE ◆ SPARK ◆ NIFI ◆ AIRFLOW ◆ AZURE ◆ AWS ◆ DATABRICKS ◆ DOCKER ◆ KUBERNETES ◆ ARGO CD ◆ COMPUTER VISION ◆ PYTHON ◆ SQL ◆ PYSPARK ◆&nbsp;</span>
+      </div>
+    </div>
+
     <div class="thread" id="thread" aria-live="polite">
 
       <!-- empty state -->
       <div class="hello" id="hello">
-        <svg class="hello-fig" viewBox="0 0 520 84" aria-hidden="true">
+        <svg class="hello-fig" viewBox="0 0 520 240" role="img" aria-label="Schematic of the pipeline powering this site: raw data flows through Apache NiFi into Snowflake, then an LLM agent with Python tools produces grounded answers.">
           <defs>
-            <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M0 0 L8 4 L0 8 Z" fill="currentColor"/>
             </marker>
           </defs>
-          <g class="hnode"><rect x="8" y="24" width="108" height="36" rx="3"/><text x="62" y="46">YOUR QUESTION</text></g>
-          <path class="hflow" d="M118 42 H176" marker-end="url(#ah)"/>
-          <g class="hnode hot"><rect x="178" y="24" width="150" height="36" rx="3"/><text x="253" y="46">SHWETA'S AGENT</text></g>
-          <path class="hflow" d="M330 42 H388" marker-end="url(#ah)"/>
-          <g class="hnode"><rect x="390" y="24" width="122" height="36" rx="3"/><text x="451" y="46">REAL ANSWERS</text></g>
-          <circle class="hpacket" r="3"><animateMotion dur="1.4s" begin="0s" repeatCount="indefinite" path="M118 42 H176"/></circle>
-          <circle class="hpacket" r="3"><animateMotion dur="1.4s" begin="0.7s" repeatCount="indefinite" path="M330 42 H388"/></circle>
+          <g class="hnode"><rect x="10" y="28" width="104" height="40" rx="3"/><text x="62" y="46">RAW DATA</text><text class="sub" x="62" y="59">APIS · DBS · FILES</text></g>
+          <path class="hflow" d="M114 48 H152" marker-end="url(#ah)"/>
+          <g class="hnode"><rect x="154" y="28" width="112" height="40" rx="3"/><text x="210" y="46">APACHE NIFI</text><text class="sub" x="210" y="59">REAL-TIME INGEST</text></g>
+          <path class="hflow" d="M266 48 H304" marker-end="url(#ah)"/>
+          <g class="hnode"><rect x="306" y="28" width="120" height="40" rx="3"/><text x="366" y="46">SNOWFLAKE</text><text class="sub" x="366" y="59">WAREHOUSE + CDC</text></g>
+          <path class="hflow" d="M366 68 C366 110 260 100 260 138" marker-end="url(#ah)"/>
+          <text class="ann" x="380" y="105">STREAMS + TASKS</text>
+          <g class="hnode hot"><rect x="180" y="140" width="160" height="44" rx="3"/><text x="260" y="159">LLM AGENT</text><text class="sub" x="260" y="173">LANGGRAPH · GOOGLE ADK</text></g>
+          <path class="hflow" d="M178 162 H132" marker-end="url(#ah)"/>
+          <g class="hnode"><rect x="10" y="140" width="120" height="44" rx="3"/><text x="70" y="159">ANSWERS</text><text class="sub" x="70" y="173">GROUNDED · CITED</text></g>
+          <path class="hflow hot-flow" d="M342 152 H378" marker-end="url(#ah)"/>
+          <path class="hflow hot-flow" d="M378 172 H344" marker-end="url(#ah)"/>
+          <g class="hnode"><rect x="380" y="140" width="120" height="44" rx="3"/><text x="440" y="159">PY TOOLS</text><text class="sub" x="440" y="173">DETERMINISTIC</text></g>
+          <text class="ann" x="336" y="132">FN CALLS</text>
+          <circle class="hpacket" r="3"><animateMotion dur="1.2s" begin="0s" repeatCount="indefinite" path="M114 48 H152"/></circle>
+          <circle class="hpacket" r="3"><animateMotion dur="1.2s" begin="0.5s" repeatCount="indefinite" path="M266 48 H304"/></circle>
+          <circle class="hpacket" r="3"><animateMotion dur="1.6s" begin="0.3s" repeatCount="indefinite" path="M366 68 C366 110 260 100 260 138"/></circle>
+          <circle class="hpacket" r="3"><animateMotion dur="1.1s" begin="0.9s" repeatCount="indefinite" path="M178 162 H132"/></circle>
+          <text class="ann" x="10" y="222">FIG. 01 — THE KIND OF SYSTEM SHE BUILDS. THIS SITE IS ONE.</text>
         </svg>
         <h2>Ask me anything <em>about Shweta.</em></h2>
         <p>Shweta built me — a streaming agent on her own homelab Kubernetes
@@ -94,6 +132,117 @@
     </form>
     <p class="fineprint">AGENT ANSWERS COME FROM A SMALL SELF-HOSTED MODEL — QUIRKS POSSIBLE. FACTS WORTH VERIFYING: <a href="mailto:shwetanimesh700@gmail.com">EMAIL SHWETA</a>.</p>
   </main>
+
+  <!-- ============ CASE FILES DRAWER ============ -->
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <section class="drawer" id="drawer" aria-label="Case files" hidden>
+    <header class="drawer-head">
+      <div>
+        <p class="drawer-kicker">DOC № SR-2026 · SHIPPED SYSTEMS</p>
+        <h2>Case <em>Files</em></h2>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close case files">✕</button>
+    </header>
+
+    <article class="case">
+      <div class="case-top"><span class="case-no">P·01</span>
+        <div class="case-links">
+          <a href="https://github.com/rani700/DietDoctorAI" target="_blank" rel="noopener">REPO ↗</a>
+          <a class="hot" href="https://www.youtube.com/watch?v=LNHT23NMFGU" target="_blank" rel="noopener">DEMO ↗</a>
+        </div>
+      </div>
+      <h3>DietDoctor AI <span>/ WhatsApp health agent</span></h3>
+      <p>A personal AI dietician living entirely inside WhatsApp. Deterministic Python
+      tools do the math — the LLM never miscounts a calorie.</p>
+      <div class="schematic"><span class="n">WHATSAPP</span><i class="arr"></i><span class="n">N8N</span><i class="arr"></i><span class="n hotn">ADK · GEMINI 2.5</span><i class="arr two"></i><span class="n">PY TOOLS</span><i class="arr"></i><span class="n">K8S</span></div>
+      <div class="case-foot">
+        <div class="tags"><span>Google ADK</span><span>Gemini 2.5</span><span>FastAPI</span><span>n8n</span><span>Kubernetes</span></div>
+        <button class="ask" data-q="Tell me the story of DietDoctor AI — what's clever about it?">ASK THE AGENT ↴</button>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-top"><span class="case-no">P·02</span>
+        <div class="case-links">
+          <a href="https://github.com/rani700/healthcompanion" target="_blank" rel="noopener">REPO ↗</a>
+          <a class="hot" href="https://healthcompanion.codeshare.co.in" target="_blank" rel="noopener">LIVE ↗</a>
+        </div>
+      </div>
+      <h3>HealthCompanion <span>/ per-patient medical RAG</span></h3>
+      <p>Answers only from each patient's own records — Gemini vision OCR reads
+      handwritten notes, hybrid retrieval cites every source. Zero cross-patient leaks.</p>
+      <div class="schematic"><span class="n">SCANS</span><i class="arr"></i><span class="n">GEMINI OCR</span><i class="arr"></i><span class="n">CHROMADB</span><i class="arr"></i><span class="n hotn">RRF + MMR</span><i class="arr"></i><span class="n">CITED ANSWER</span></div>
+      <div class="case-foot">
+        <div class="tags"><span>Gemini</span><span>ChromaDB</span><span>FastAPI</span><span>React</span><span>ArgoCD</span></div>
+        <button class="ask" data-q="How does HealthCompanion keep patient data isolated and answers grounded?">ASK THE AGENT ↴</button>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-top"><span class="case-no">P·03</span>
+        <div class="case-links">
+          <a href="https://github.com/rani700/easyform" target="_blank" rel="noopener">REPO ↗</a>
+        </div>
+      </div>
+      <h3>EasyForm <span>/ AI document extraction</span></h3>
+      <p>Reads marksheets and IDs with GPT-4o vision, cross-checks identities, chases
+      missing fields over email — and fills the form itself.</p>
+      <div class="schematic"><span class="n">DOCS · EMAIL</span><i class="arr"></i><span class="n">CLASSIFY</span><i class="arr"></i><span class="n hotn">GPT-4O VISION</span><i class="arr"></i><span class="n">VALIDATE</span><i class="arr"></i><span class="n">FORM</span></div>
+      <div class="case-foot">
+        <div class="tags"><span>GPT-4o</span><span>LangGraph</span><span>LangChain</span><span>PostgreSQL</span></div>
+        <button class="ask" data-q="Walk me through EasyForm's LangGraph state machine.">ASK THE AGENT ↴</button>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-top"><span class="case-no">P·04</span>
+        <div class="case-links">
+          <a href="https://github.com/rani700/Databricks_Ecomm_Data_Platform" target="_blank" rel="noopener">REPO ↗</a>
+          <a class="hot" href="https://www.youtube.com/watch?v=as7wht24yj4" target="_blank" rel="noopener">DEMO ↗</a>
+        </div>
+      </div>
+      <h3>Agentic Data Platform <span>/ NL → Spark SQL</span></h3>
+      <p>Ask a question in English; a Llama 3.3 ReAct agent writes and runs the
+      Spark SQL over a Medallion lakehouse — autonomously.</p>
+      <div class="schematic"><span class="n">NL QUERY</span><i class="arr"></i><span class="n hotn">LLAMA 3.3 · REACT</span><i class="arr"></i><span class="n">SPARK SQL</span><i class="arr"></i><span class="n">MEDALLION Δ</span></div>
+      <div class="case-foot">
+        <div class="tags"><span>Databricks</span><span>Llama 3.3</span><span>Streamlit</span><span>PySpark</span></div>
+        <button class="ask" data-q="How does the agentic Databricks platform turn English into Spark SQL safely?">ASK THE AGENT ↴</button>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-top"><span class="case-no">P·05</span>
+        <div class="case-links">
+          <a href="https://github.com/rani700/RealTime-Data-Streaming-using-Apache-Nifi-AWS-and-Snowflake" target="_blank" rel="noopener">REPO ↗</a>
+          <a class="hot" href="https://www.youtube.com/watch?v=wH_MlgZoMhA" target="_blank" rel="noopener">DEMO ↗</a>
+        </div>
+      </div>
+      <h3>Real-time Streaming <span>/ NiFi → Snowflake CDC</span></h3>
+      <p>An end-to-end streaming backbone with change-data-capture — the same class of
+      pipeline she runs in production.</p>
+      <div class="schematic"><span class="n">EC2</span><i class="arr"></i><span class="n">NIFI</span><i class="arr"></i><span class="n">S3</span><i class="arr"></i><span class="n">SNOWPIPE</span><i class="arr"></i><span class="n hotn">SNOWFLAKE · CDC</span></div>
+      <div class="case-foot">
+        <div class="tags"><span>Apache NiFi</span><span>AWS</span><span>SnowPipe</span><span>Docker</span></div>
+        <button class="ask" data-q="Explain the real-time NiFi to Snowflake streaming pipeline.">ASK THE AGENT ↴</button>
+      </div>
+    </article>
+
+    <section class="bench">
+      <h4>ALSO ON THE BENCH <span>— ML &amp; DATA WORK FROM BEFORE THE LLM ERA</span></h4>
+      <ul>
+        <li><a href="https://github.com/rani700/xray" target="_blank" rel="noopener"><b>xray</b> — lung-field segmentation on chest X-rays <em>★14</em></a></li>
+        <li><a href="https://github.com/rani700/molecules_classification" target="_blank" rel="noopener"><b>molecules</b> — DNN · CNN · transfer-learning classification</a></li>
+        <li><a href="https://github.com/rani700/Azure-Data-Engineering-Project-Real-time-News-Analysis-with-AI-Metabase" target="_blank" rel="noopener"><b>news-analysis</b> — Azure ADF · Functions · AI · Metabase</a></li>
+        <li><a href="https://github.com/rani700/corona" target="_blank" rel="noopener"><b>corona</b> — fatalities forecasting, time series</a></li>
+        <li><a href="https://github.com/rani700/SpotifyData-ETL-Pipeline" target="_blank" rel="noopener"><b>spotify-etl</b> — ETL pipeline over Spotify data</a></li>
+        <li><a href="https://github.com/rani700/recommendation-system" target="_blank" rel="noopener"><b>recsys</b> — recommendation engine experiments</a></li>
+        <li><a href="https://github.com/rani700/sentiment-analysis" target="_blank" rel="noopener"><b>sentiment</b> — NLP sentiment analysis</a></li>
+        <li><a href="https://github.com/rani700/serverless-chat" target="_blank" rel="noopener"><b>serverless-chat</b> — P2P chat, no server</a></li>
+      </ul>
+      <a class="bench-all" href="https://github.com/rani700?tab=repositories" target="_blank" rel="noopener">ALL REPOSITORIES ↗</a>
+    </section>
+  </section>
 
   <script src="app.js"></script>
 </body>

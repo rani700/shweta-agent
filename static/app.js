@@ -8,6 +8,9 @@ const input = document.getElementById("input");
 const send = document.getElementById("send");
 const statusDot = document.getElementById("statusDot");
 const statusText = document.getElementById("statusText");
+const drawer = document.getElementById("drawer");
+const drawerBackdrop = document.getElementById("drawerBackdrop");
+const drawerClose = document.getElementById("drawerClose");
 
 const history = []; // {role, content}
 let busy = false;
@@ -84,7 +87,7 @@ function addMsg(role, label) {
   el.className = `msg ${role}`;
   el.innerHTML = `<div class="who">${label}</div><div class="body"></div>`;
   thread.appendChild(el);
-  return el.querySelector(".body");
+  return el;
 }
 
 function scrollDown() {
@@ -97,11 +100,13 @@ async function ask(question) {
   send.disabled = true;
   if (hello) hello.style.display = "none";
 
-  addMsg("you", "YOU").textContent = question;
+  addMsg("you", "YOU").querySelector(".body").textContent = question;
   history.push({ role: "user", content: question });
   scrollDown();
 
-  const body = addMsg("agent", "SHWETA'S AGENT");
+  const msgEl = addMsg("agent", "SHWETA'S AGENT");
+  msgEl.classList.add("live");
+  const body = msgEl.querySelector(".body");
   let waitIdx = 0;
   body.innerHTML = `<span class="thinking"><span class="spin"></span><span id="wl">${WAIT_LINES[0]}</span></span>`;
   const waitTimer = setInterval(() => {
@@ -153,12 +158,32 @@ async function ask(question) {
     )}). THE HOMELAB MAY BE ASLEEP — TRY AGAIN IN A MOMENT, OR <a href="mailto:shwetanimesh700@gmail.com">EMAIL SHWETA</a>.</div>`;
   } finally {
     clearInterval(waitTimer);
+    msgEl.classList.remove("live");
     busy = false;
     send.disabled = false;
     scrollDown();
     input.focus();
   }
 }
+
+/* ---------- case-files drawer ---------- */
+function openDrawer() {
+  drawer.hidden = false;
+  drawerBackdrop.hidden = false;
+  drawerClose.focus();
+}
+function closeDrawer() {
+  drawer.hidden = true;
+  drawerBackdrop.hidden = true;
+}
+document.querySelectorAll("[data-open-drawer]").forEach((b) =>
+  b.addEventListener("click", openDrawer)
+);
+drawerClose.addEventListener("click", closeDrawer);
+drawerBackdrop.addEventListener("click", closeDrawer);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !drawer.hidden) closeDrawer();
+});
 
 /* ---------- wiring ---------- */
 composer.addEventListener("submit", (e) => {
@@ -169,7 +194,10 @@ composer.addEventListener("submit", (e) => {
 });
 
 document.querySelectorAll("[data-q]").forEach((btn) =>
-  btn.addEventListener("click", () => ask(btn.dataset.q))
+  btn.addEventListener("click", () => {
+    if (btn.closest("#drawer")) closeDrawer();
+    ask(btn.dataset.q);
+  })
 );
 
 input.focus();

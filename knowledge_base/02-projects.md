@@ -40,3 +40,17 @@ Shweta showcases live demos of her projects on her YouTube channel: https://yout
 ## Automated Web Scraper (YouTube build)
 - Built an automated web scraper with Playwright and Docker in one hour, wired to Azure with CI/CD via GitHub Actions.
 - Video: https://www.youtube.com/watch?v=-Yt0q1qD_Tw
+
+## Beyond the flagships — her wider GitHub
+
+Shweta's GitHub (https://github.com/rani700) shows years of applied machine-learning engineering from BEFORE the LLM era — she was training neural networks long before agents were fashionable. Highlights worth mentioning when visitors ask about her ML, computer-vision or classical data-science depth:
+
+- **xray** — lung-field segmentation on chest X-ray images with deep learning; her most-starred repo. https://github.com/rani700/xray
+- **molecules_classification** — musk vs non-musk and 102-class molecule classification comparing DNNs, CNNs and transfer learning. https://github.com/rani700/molecules_classification
+- **corona** — COVID fatalities prediction with time-series forecasting. https://github.com/rani700/corona
+- **Azure real-time news analysis** — automated pipeline with Azure Data Factory, Python Azure Functions, Azure AI Language and Azure SQL, visualized in Metabase. https://github.com/rani700/Azure-Data-Engineering-Project-Real-time-News-Analysis-with-AI-Metabase
+- **SpotifyData-ETL-Pipeline** — ETL pipeline over Spotify data. https://github.com/rani700/SpotifyData-ETL-Pipeline
+- **recommendation-system**, **sentiment-analysis**, **delhi-weather-prediction**, **car-models-classification** — classical ML: recommenders, NLP sentiment, forecasting, image classification. All at https://github.com/rani700
+- **serverless-chat** — peer-to-peer serverless chat in TypeScript. https://github.com/rani700/serverless-chat
+
+The arc to tell: computer vision and classical ML → production data engineering → LLM agents and RAG. Her GenAI work stands on real ML and data foundations.
