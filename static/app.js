@@ -30,17 +30,17 @@ async function checkStatus() {
     const c = await r.json();
     if (c.status === "warm") {
       statusDot.className = "dot warm";
-      statusText.textContent = `LIVE · ${c.model.toUpperCase()} · WARM`;
+      statusText.textContent = `${c.model.toUpperCase()} · WARM`;
     } else if (c.status === "idle") {
       statusDot.className = "dot ok";
-      statusText.textContent = `LIVE · ${c.model.toUpperCase()} · ON-DEMAND`;
+      statusText.textContent = `${c.model.toUpperCase()} · LIVE`;
     } else {
       statusDot.className = "dot";
-      statusText.textContent = "AGENT OFFLINE — TRY EMAIL INSTEAD";
+      statusText.textContent = "AGENT ASLEEP — EMAIL INSTEAD";
     }
   } catch {
     statusDot.className = "dot";
-    statusText.textContent = "AGENT STATUS UNKNOWN";
+    statusText.textContent = "STATUS UNKNOWN";
   }
 }
 checkStatus();
@@ -149,6 +149,7 @@ async function ask(question) {
     }
     if (!answer) throw new Error("empty response");
     body.innerHTML = md(answer);
+    addSources(body, answer);
     history.push({ role: "assistant", content: answer });
   } catch (e) {
     clearInterval(waitTimer);
@@ -164,6 +165,43 @@ async function ask(question) {
     scrollDown();
     input.focus();
   }
+}
+
+/* ---------- sources row: cite what the answer mentioned ---------- */
+function sourceChip(url) {
+  try {
+    const u = new URL(url);
+    const h = u.hostname.replace(/^www\./, "");
+    if (h === "github.com") {
+      const parts = u.pathname.split("/").filter(Boolean);
+      if (parts.length >= 2) return `<b>⌥</b> ${esc(parts[1].toLowerCase())} · repo`;
+      return `<b>⌥</b> github`;
+    }
+    if (h.includes("youtube.com") || h === "youtu.be") {
+      return u.pathname.startsWith("/watch") || h === "youtu.be"
+        ? `<b>▶</b> watch demo` : `<b>▶</b> youtube`;
+    }
+    if (h.includes("linkedin.com")) return `<b>in</b> linkedin`;
+    if (h.includes("springer.com")) return `<b>§</b> springer paper`;
+    if (h.includes("codeshare.co.in") || h.includes("shwetarani.com")) return `<b>●</b> live demo`;
+    return `<b>↗</b> ${esc(h)}`;
+  } catch { return null; }
+}
+
+function addSources(body, text) {
+  const urls = [...new Set(
+    (text.match(/https?:\/\/[^\s<)\]"']+[^\s<)\]"'.,!?]/g) || [])
+  )].slice(0, 6);
+  if (!urls.length) return;
+  const row = document.createElement("div");
+  row.className = "sources";
+  row.innerHTML = urls
+    .map((u) => {
+      const label = sourceChip(u);
+      return label ? `<a href="${esc(u)}" target="_blank" rel="noopener">${label} ↗</a>` : "";
+    })
+    .join("");
+  if (row.innerHTML) body.appendChild(row);
 }
 
 /* ---------- case-files drawer ---------- */
