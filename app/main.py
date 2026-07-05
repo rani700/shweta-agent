@@ -75,6 +75,16 @@ KNOWLEDGE BASE:
 """
 
 
+@app.middleware("http")
+async def no_stale_assets(request: Request, call_next):
+    """The UI ships as one unit — never let a browser pair cached CSS/JS
+    with newer HTML (ETag revalidation still allows cheap 304s)."""
+    resp = await call_next(request)
+    if request.url.path == "/" or request.url.path.endswith((".html", ".css", ".js")):
+        resp.headers["Cache-Control"] = "no-cache"
+    return resp
+
+
 @app.get("/health")
 async def health():
     return {"ok": True, "model": MODEL}
