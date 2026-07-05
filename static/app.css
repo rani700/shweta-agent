@@ -267,6 +267,24 @@ body {
 }
 .msg.agent .body strong { font-weight: 620; }
 
+/* curated case-file answers — instant, honestly labeled */
+.msg.file .who { color: var(--ink-2); }
+.msg.file .who .flash { color: var(--accent); font-weight: 600; }
+.msg.file .body {
+  border-left: 3px double var(--ink);
+  background: color-mix(in srgb, var(--paper-2) 30%, transparent);
+  padding: 0.7rem 0.9rem 0.7rem 1.1rem;
+  border-radius: 0 3px 3px 0;
+}
+.press {
+  display: block; margin-top: 0.9rem;
+  font-family: var(--mono); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em;
+  cursor: pointer; padding: 0.5rem 0.8rem; border-radius: 2px;
+  border: 1px solid var(--accent); background: none; color: var(--accent);
+  transition: background 0.2s, color 0.2s;
+}
+.press:hover { background: var(--accent); color: var(--paper); }
+
 /* sources row — the answer's citations, rendered as artefacts */
 .sources {
   display: flex; flex-wrap: wrap; gap: 0.45rem;

@@ -14,6 +14,68 @@ const drawerClose = document.getElementById("drawerClose");
 
 const history = []; // {role, content}
 let busy = false;
+let lastStatus = "unknown"; // warm | idle | offline | unknown
+
+/* ---------- curated case-file notes ----------
+   Known questions answer INSTANTLY from these notes (honestly labeled),
+   with a handoff button that sends a deeper question to the live model.
+   Anything typed freely still goes straight to the LLM. */
+const CANNED_TOPICS = {
+  dietdoctor: {
+    text: `I built **DietDoctor AI** because diet advice fails at the follow-through — so I put the dietician where the conversation already happens: WhatsApp. No app, no login; you just text it.
+The part I'm proudest of: the LLM never does arithmetic. BMI, BMR and macro math run as deterministic Python function-calls, so the coaching is conversational but the numbers are exact. Gemini 2.5 Flash + Google ADK behind FastAPI, containerized on my Kubernetes cluster with GitOps deploys.
+Watch it work: https://www.youtube.com/watch?v=LNHT23NMFGU · code: https://github.com/rani700/DietDoctorAI`,
+    follow: "What were the hardest engineering problems in DietDoctor AI?",
+  },
+  healthcompanion: {
+    text: `**HealthCompanion** answers medical questions from one source only: that patient's own records. Every patient gets an isolated ChromaDB collection, so cross-patient leakage is structurally impossible — not just discouraged by a prompt.
+Gemini vision OCR reads scanned and handwritten documents; retrieval is hybrid — semantic + keyword fused with RRF, then MMR for diversity — and every answer carries citations back to the source document. JWT auth and role-based access wrap the whole thing.
+Try it live: https://healthcompanion.codeshare.co.in · code: https://github.com/rani700/healthcompanion`,
+    follow: "How does HealthCompanion's hybrid retrieval actually work, step by step?",
+  },
+  experience: {
+    text: `Right now I'm a Data Engineer at **WNS** in Gurugram — end-to-end ETL/ELT on Azure, Python and SQL at serious scale, real-time NiFi → Snowflake streaming, automated data-quality frameworks, and I drive GenAI adoption in my role by prototyping LLM agents that automate data workflows.
+Earlier, at **Astrea IT Services**, I built Salesforce solutions — Apex, triggers, Visualforce — and shipped production process automations.
+The case files are where those two crafts meet: pipelines by day, agents on my own cluster.`,
+    follow: "What does Shweta work on day-to-day at WNS?",
+  },
+  site: {
+    text: `You're inside one of my systems right now. This chat streams from **Llama 3.1** on Ollama — running on my own hardware, no cloud APIs — through a FastAPI backend I wrote, grounded in a markdown knowledge base so it answers from my real work instead of imagining it.
+Every git push cuts a release: GitHub Actions builds the container, publishes to GHCR, and ArgoCD rolls it onto my Kubernetes cluster. The page you're reading is the demo.
+Source: https://github.com/rani700/shweta-agent`,
+    follow: "What's the full deployment pipeline behind this site?",
+  },
+  easyform: {
+    text: `**EasyForm** fills government exam forms from a pile of documents — marksheets, ID cards — using GPT-4o vision inside a LangGraph state machine: classify → extract → validate → merge.
+The clever part is trust: extracted fields are cross-checked with fuzzy identity matching across documents, and when something's missing the agent emails the applicant itself (IMAP/SMTP), parses the reply in natural language, and continues where it left off.
+Code: https://github.com/rani700/easyform`,
+    follow: "What breaks first in document-extraction pipelines, and how does EasyForm handle it?",
+  },
+  databricks: {
+    text: `The **Agentic Data Platform** lets you question a Databricks lakehouse in plain English. A Llama 3.3 agent runs the ReAct loop — reason, write Spark SQL, execute, read the result, refine — over a Medallion (bronze/silver/gold) architecture, autonomously.
+Build walkthrough: https://www.youtube.com/watch?v=as7wht24yj4 · code: https://github.com/rani700/Databricks_Ecomm_Data_Platform`,
+    follow: "How does the ReAct loop decide the Spark SQL it generates is safe and correct?",
+  },
+  streaming: {
+    text: `My **real-time streaming pipeline** is the backbone pattern I run in production: EC2 → Apache NiFi → S3 → SnowPipe → Snowflake, with change-data-capture handled natively by Snowflake streams and tasks. The whole stack ships as Docker Compose, so it stands up identically anywhere.
+Demo: https://www.youtube.com/watch?v=wH_MlgZoMhA · code: https://github.com/rani700/RealTime-Data-Streaming-using-Apache-Nifi-AWS-and-Snowflake`,
+    follow: "Where does back-pressure show up in the NiFi to Snowflake pipeline, and how is it handled?",
+  },
+};
+
+// question strings (chips + ASK buttons) → topic
+const CANNED_BY_QUESTION = {
+  "Tell me about DietDoctor AI, the WhatsApp dietician.": "dietdoctor",
+  "Tell me the story of DietDoctor AI — what's clever about it?": "dietdoctor",
+  "How does HealthCompanion keep patient records isolated?": "healthcompanion",
+  "How does HealthCompanion keep patient data isolated and answers grounded?": "healthcompanion",
+  "Tell me about Shweta's work experience.": "experience",
+  "How does this site itself work?": "site",
+  "How does this agent itself work? Shweta built you, right?": "site",
+  "Walk me through EasyForm's LangGraph state machine.": "easyform",
+  "How does the agentic Databricks platform turn English into Spark SQL safely?": "databricks",
+  "Explain the real-time NiFi to Snowflake streaming pipeline.": "streaming",
+};
 
 const WAIT_LINES = [
   "WAKING THE HOMELAB…",
@@ -28,6 +90,7 @@ async function checkStatus() {
   try {
     const r = await fetch("/api/config");
     const c = await r.json();
+    lastStatus = c.status;
     if (c.status === "warm") {
       statusDot.className = "dot warm";
       statusText.textContent = `${c.model.toUpperCase()} · WARM`;
@@ -36,9 +99,10 @@ async function checkStatus() {
       statusText.textContent = `${c.model.toUpperCase()} · LIVE`;
     } else {
       statusDot.className = "dot";
-      statusText.textContent = "AGENT ASLEEP — EMAIL INSTEAD";
+      statusText.textContent = "MODEL ASLEEP · CASE FILES STILL ANSWER";
     }
   } catch {
+    lastStatus = "unknown";
     statusDot.className = "dot";
     statusText.textContent = "STATUS UNKNOWN";
   }
@@ -94,8 +158,57 @@ function scrollDown() {
   thread.scrollTop = thread.scrollHeight;
 }
 
-async function ask(question) {
+function renderCanned(question, topic) {
+  const c = CANNED_TOPICS[topic];
+  if (hello) hello.style.display = "none";
+  addMsg("you", "YOU").querySelector(".body").textContent = question;
+  history.push({ role: "user", content: question });
+
+  const msgEl = addMsg("agent", 'FROM HER CASE FILES <b class="flash">⚡ INSTANT</b>');
+  msgEl.classList.add("file");
+  const body = msgEl.querySelector(".body");
+  body.innerHTML = md(c.text);
+  addSources(body, c.text);
+  // mark the voice so the live model doesn't adopt first person from her notes
+  history.push({ role: "assistant", content: `[Shweta's own case note, shown to the visitor verbatim]\n${c.text}` });
+
+  if (c.follow) {
+    const press = document.createElement("button");
+    press.className = "press";
+    press.textContent = "PRESS FURTHER — ASK THE LIVE MODEL ↴";
+    press.addEventListener("click", () => { press.remove(); ask(c.follow, true); });
+    body.appendChild(press);
+  }
+  scrollDown();
+  input.focus();
+}
+
+async function ask(question, forceLive = false) {
   if (busy || !question.trim()) return;
+
+  const topic = CANNED_BY_QUESTION[question.trim()];
+  if (topic && !forceLive) { renderCanned(question.trim(), topic); return; }
+
+  // homelab asleep? say so warmly instead of hanging for minutes
+  if (lastStatus === "offline") {
+    try {
+      const r = await fetch("/api/config");
+      lastStatus = (await r.json()).status;
+    } catch { /* keep offline */ }
+    if (lastStatus === "offline") {
+      if (hello) hello.style.display = "none";
+      addMsg("you", "YOU").querySelector(".body").textContent = question;
+      const note = addMsg("agent", "SHWETA'S AGENT");
+      note.querySelector(".body").innerHTML =
+        `<p>The live model naps on my homelab and it's unreachable right now — ` +
+        `that's the one honest downside of self-hosting. The <strong>case-file topics ` +
+        `still answer instantly</strong>, and for anything else ` +
+        `<a href="mailto:shwetanimesh700@gmail.com">email me</a> — I reply fast.</p>`;
+      scrollDown();
+      return;
+    }
+  }
+
   busy = true;
   send.disabled = true;
   if (hello) hello.style.display = "none";
@@ -237,5 +350,43 @@ document.querySelectorAll("[data-q]").forEach((btn) =>
     ask(btn.dataset.q);
   })
 );
+
+/* ---------- presence: IST clock + what she's probably doing ---------- */
+function presence() {
+  const el = document.getElementById("presence");
+  if (!el) return;
+  const ist = new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
+  const h = ist.getHours();
+  const hh = String(h).padStart(2, "0");
+  const mm = String(ist.getMinutes()).padStart(2, "0");
+  const doing =
+    h < 7 ? "ASLEEP — THE AGENT ISN'T" :
+    h < 10 ? "CHAI, THEN PIPELINES" :
+    h < 13 ? "PROBABLY SHIPPING" :
+    h < 14 ? "AT LUNCH" :
+    h < 19 ? "IN THE PIPELINE" :
+    h < 23 ? "TINKERING ON THE HOMELAB" :
+    "ASLEEP — THE AGENT ISN'T";
+  el.textContent = `IST ${hh}:${mm} · SHWETA: ${doing}`;
+}
+presence();
+setInterval(presence, 30000);
+
+/* ---------- deep links: #dietdoctor opens that case-file answer ---------- */
+const SLUG_TO_QUESTION = {
+  dietdoctor: "Tell me about DietDoctor AI, the WhatsApp dietician.",
+  healthcompanion: "How does HealthCompanion keep patient records isolated?",
+  experience: "Tell me about Shweta's work experience.",
+  site: "How does this site itself work?",
+  easyform: "Walk me through EasyForm's LangGraph state machine.",
+  databricks: "How does the agentic Databricks platform turn English into Spark SQL safely?",
+  streaming: "Explain the real-time NiFi to Snowflake streaming pipeline.",
+  casefiles: "__drawer__",
+};
+const slug = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+if (SLUG_TO_QUESTION[slug]) {
+  if (SLUG_TO_QUESTION[slug] === "__drawer__") openDrawer();
+  else ask(SLUG_TO_QUESTION[slug]);
+}
 
 input.focus();
