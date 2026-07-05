@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="app.css?v=11">
+  <link rel="stylesheet" href="app.css?v=12">
 </head>
 <body>
 
@@ -39,14 +39,21 @@
         RAG and document intelligence shipped on my own Kubernetes cluster.
         This site is one of those systems — <strong>it answers for me.</strong></p>
 
-        <div class="ask-row rise d4">
+        <button class="facts rise d4" id="facts" type="button" aria-label="Field note — click for the next one">
+          <span class="facts-head">→ FIELD NOTE <b id="factNo">01/10</b></span>
+          <span class="facts-body" id="factText"></span>
+        </button>
+
+        <div class="ask-row rise d45">
           <span class="ask-label">ASK IT<i class="flow" aria-hidden="true"></i></span>
           <div class="chips" id="chips">
             <button data-q="Tell me about DietDoctor AI, the WhatsApp dietician.">The WhatsApp dietician</button>
             <button data-q="How does HealthCompanion keep patient records isolated?">The medical RAG</button>
-            <button data-q="Tell me about Shweta's work experience.">Her experience</button>
             <button data-q="How does this site itself work?">This site, explained</button>
+            <button data-surprise>Surprise me</button>
+            <button class="hot-chip" data-q="Impress me in thirty seconds.">Impress me ⚡</button>
           </div>
+          <em class="scribble ask-scribble">— it's read every commit</em>
         </div>
 
         <nav class="index rise d5" aria-label="Field index — know Shweta beyond the projects">
@@ -240,6 +247,6 @@
     </section>
   </section>
 
-  <script src="app.js?v=11"></script>
+  <script src="app.js?v=12"></script>
 </body>
 </html>

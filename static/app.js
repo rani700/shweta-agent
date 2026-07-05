@@ -126,6 +126,15 @@ Paper: https://link.springer.com/book/10.1007/978-981-15-8335-3 · X-ray work: h
 <p>That's the foundation the agents stand on. <em class="scribble">← depth, not vibes</em></p>`,
     follow: "How does her classical ML background show up in how she builds LLM systems?",
   },
+  impress: {
+    text: `Thirty seconds. By day she runs production-scale pipelines at **WNS**; solo, she ships complete AI systems end-to-end — a dietician that lives in **WhatsApp**, a medical RAG that **cites every answer** and can't leak between patients, an agent that **writes and runs its own Spark SQL** over Databricks.
+All of it containerized and GitOps-deployed to her own Kubernetes cluster — including this page, where a self-hosted Llama is answering you right now. And she was **Springer-published** in deep learning before LLMs were fashionable.
+Demos: https://youtube.com/@ShwetaNimesh · code: https://github.com/rani700`,
+    html: `<p>Thirty seconds. By day she runs production-scale pipelines at <strong>WNS</strong>; solo, she ships complete AI systems end-to-end — a dietician that lives in <strong>WhatsApp</strong>, a medical RAG that <strong>cites every answer</strong> and can't leak between patients, an agent that <strong>writes and runs its own Spark SQL</strong>.</p>
+<div class="tags tags-lg"><span>SHIPS END-TO-END</span><span>SELF-HOSTED K8S · GITOPS</span><span>SPRINGER-PUBLISHED</span><span>PIPELINES IN PRODUCTION</span></div>
+<p>All of it deployed to her own Kubernetes cluster — <strong>including this page</strong>, where a self-hosted Llama is answering you right now. <em class="scribble">← the demo is the proof</em></p>`,
+    follow: "What's the single most impressive technical detail across her projects?",
+  },
   contact: {
     text: `The fastest channel is email: [shwetanimesh700@gmail.com](mailto:shwetanimesh700@gmail.com) — I genuinely reply fast.
 Elsewhere: https://linkedin.com/in/shwetarani24 · https://github.com/rani700 · https://youtube.com/@ShwetaNimesh
@@ -159,7 +168,33 @@ const CANNED_BY_QUESTION = {
   "What's in Shweta's toolbox?": "stack",
   "What are Shweta's research roots?": "roots",
   "How do I get in touch with Shweta?": "contact",
+  "Impress me in thirty seconds.": "impress",
 };
+
+/* rotating field notes — all true, all from the case files */
+const FACTS = [
+  "Her AI dietician lives entirely inside WhatsApp — no app, no login, you just text it.",
+  "The medical RAG cites every answer back to the exact source document. Every one.",
+  "The first model she trained segmented lungs on chest X-rays — still her most-starred repo.",
+  "This site runs on a self-hosted Llama on her own hardware. Zero cloud APIs.",
+  "Every git push here auto-releases: Actions → GHCR → ArgoCD → her Kubernetes cluster.",
+  "She published deep-learning research with Springer before LLMs were fashionable.",
+  "Her agents never do arithmetic — deterministic Python tools do. LLMs can't be trusted with your macros.",
+  "Her Llama 3.3 agent writes and executes its own Spark SQL over Databricks.",
+  "She's classified 102 kinds of molecules with CNNs and transfer learning. For fun.",
+  "Real-time CDC into Snowflake is her production comfort zone, not a demo.",
+];
+
+/* surprise pool — a mix of curated topics and live-model questions */
+const SURPRISE = [
+  "What are Shweta's research roots?",
+  "Walk me through EasyForm's LangGraph state machine.",
+  "How does the agentic Databricks platform turn English into Spark SQL safely?",
+  "What's the most surprising thing in Shweta's GitHub?",
+  "What do DietDoctor and HealthCompanion have in common under the hood?",
+  "Tell me about her lung X-ray segmentation work.",
+  "Explain the real-time NiFi to Snowflake streaming pipeline.",
+];
 
 const WAIT_LINES = [
   "WAKING THE HOMELAB…",
@@ -446,6 +481,34 @@ document.querySelectorAll("[data-q]").forEach((btn) =>
   })
 );
 
+/* ---------- rotating field notes ---------- */
+const factsBtn = document.getElementById("facts");
+if (factsBtn) {
+  const factNo = document.getElementById("factNo");
+  const factText = document.getElementById("factText");
+  let fi = Math.floor((Date.now() / 60000) % FACTS.length); // varies per visit
+  const showFact = () => {
+    factText.classList.remove("swap");
+    void factText.offsetWidth; // restart the fade
+    factText.classList.add("swap");
+    factText.textContent = FACTS[fi];
+    factNo.textContent = `${String(fi + 1).padStart(2, "0")}/${FACTS.length}`;
+  };
+  showFact();
+  let factTimer = setInterval(() => { fi = (fi + 1) % FACTS.length; showFact(); }, 6000);
+  factsBtn.addEventListener("click", () => {
+    clearInterval(factTimer);
+    fi = (fi + 1) % FACTS.length;
+    showFact();
+    factTimer = setInterval(() => { fi = (fi + 1) % FACTS.length; showFact(); }, 6000);
+  });
+}
+
+/* ---------- surprise me ---------- */
+document.querySelectorAll("[data-surprise]").forEach((btn) =>
+  btn.addEventListener("click", () => ask(SURPRISE[Math.floor(Math.random() * SURPRISE.length)]))
+);
+
 /* ---------- presence: IST clock + what she's probably doing ---------- */
 function presence() {
   const el = document.getElementById("presence");
@@ -462,7 +525,7 @@ function presence() {
     h < 19 ? "IN THE PIPELINE" :
     h < 23 ? "TINKERING ON THE HOMELAB" :
     "ASLEEP — THE AGENT ISN'T";
-  el.textContent = `IST ${hh}:${mm} · SHWETA: ${doing}`;
+  el.innerHTML = `IST ${hh}:${mm} · SHWETA: ${doing} <i class="blink" aria-hidden="true">▌</i>`;
 }
 presence();
 setInterval(presence, 30000);
@@ -480,6 +543,7 @@ const SLUG_TO_QUESTION = {
   stack: "What's in Shweta's toolbox?",
   roots: "What are Shweta's research roots?",
   contact: "How do I get in touch with Shweta?",
+  impress: "Impress me in thirty seconds.",
   casefiles: "__drawer__",
 };
 const slug = decodeURIComponent(location.hash.slice(1)).toLowerCase();
