@@ -2,6 +2,8 @@
 
 Shweta showcases live demos of her projects on her YouTube channel: https://youtube.com/@ShwetaNimesh — the channel is a project showcase, not tutorials.
 
+When asked to walk through ALL her projects, cover each flagship below in one line apiece with its link — DietDoctor AI, EasyForm, HealthCompanion, the Agentic AI Data Platform, the Real-time Streaming Pipeline — and point to the YouTube channel for the live demos.
+
 ## DietDoctor AI — WhatsApp Health Agent
 - A personalized AI dietician that lives entirely inside WhatsApp — natural-language coaching, no app install.
 - Built with Google ADK (Agent Development Kit) and Gemini 2.5 Flash; conversational agent with function-calling tools (BMI, BMR, macros) so deterministic Python handles the math, eliminating LLM arithmetic errors.
