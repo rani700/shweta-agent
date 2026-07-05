@@ -102,7 +102,7 @@ body {
 .rise { opacity: 0; transform: translateY(18px); animation: riseIn 0.7s cubic-bezier(0.2, 0.6, 0.2, 1) forwards; }
 .d1 { animation-delay: 0.05s; } .d2 { animation-delay: 0.15s; }
 .d3 { animation-delay: 0.28s; } .d4 { animation-delay: 0.4s; }
-.d5 { animation-delay: 0.55s; }
+.d5 { animation-delay: 0.55s; } .d6 { animation-delay: 0.7s; }
 @keyframes riseIn { to { opacity: 1; transform: none; } }
 
 .kicker {
@@ -157,6 +157,47 @@ body {
   border-color: var(--accent); color: var(--accent);
   background: var(--accent-soft); transform: translateY(-1px);
 }
+
+/* field index — know her beyond the projects */
+.index { margin-bottom: 2rem; }
+.index-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-top: 1px solid var(--ink);
+  padding-top: 0.8rem; margin-bottom: 0.4rem;
+}
+.index-head h2 {
+  font-family: var(--mono); font-size: 0.64rem; font-weight: 600;
+  letter-spacing: 0.16em; color: var(--ink);
+}
+.index-head span {
+  font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.14em; color: var(--ink-2);
+}
+.index-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 1.6rem; }
+.index-grid button {
+  display: flex; align-items: baseline; gap: 0.6rem;
+  text-align: left; cursor: pointer;
+  background: none; border: none; border-bottom: 1px dashed var(--rule);
+  padding: 0.6rem 0.3rem;
+  transition: background 0.2s, padding-left 0.25s;
+}
+.index-grid button b {
+  font-family: var(--mono); font-size: 0.66rem; font-weight: 600;
+  color: var(--accent); flex: none;
+}
+.index-grid button span {
+  font-family: var(--serif); font-size: 1.02rem; font-weight: 540;
+  font-variation-settings: "opsz" 30;
+  color: var(--ink); white-space: nowrap;
+}
+.index-grid button i {
+  font-family: var(--mono); font-size: 0.5rem; font-style: normal;
+  letter-spacing: 0.1em; color: var(--ink-2);
+  margin-left: auto; text-align: right; white-space: nowrap;
+}
+.index-grid button:hover, .index-grid button:focus-visible {
+  background: var(--accent-soft); padding-left: 0.7rem;
+}
+.index-grid button:hover span { color: var(--accent); }
 
 /* selected work */
 .work-head {
@@ -522,6 +563,8 @@ body {
 /* ============ RESPONSIVE ============ */
 @media (max-width: 880px) {
   .work-grid { grid-template-columns: 1fr; }
+  .index-grid { grid-template-columns: 1fr; }
+  .index-grid button i { display: none; }
   .hello h1 br { display: none; }
 }
 @media (max-width: 700px) {

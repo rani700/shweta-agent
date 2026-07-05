@@ -61,6 +61,32 @@ Build walkthrough: https://www.youtube.com/watch?v=as7wht24yj4 · code: https://
 Demo: https://www.youtube.com/watch?v=wH_MlgZoMhA · code: https://github.com/rani700/RealTime-Data-Streaming-using-Apache-Nifi-AWS-and-Snowflake`,
     follow: "Where does back-pressure show up in the NiFi to Snowflake pipeline, and how is it handled?",
   },
+  about: {
+    text: `I'm Shweta — a data engineer at **WNS** in Gurugram who builds the other half of the stack too: the intelligent systems the data feeds. By day I run production ETL and real-time streams; on my own Kubernetes cluster I ship LLM agents, RAG systems and document intelligence end-to-end.
+My foundation is an integrated B.Tech + M.Tech in **AI & Robotics**, with peer-reviewed research published by **Springer** — I was training neural networks before LLMs made it fashionable.
+I showcase everything I build on YouTube: https://youtube.com/@ShwetaNimesh · and it all lives at https://github.com/rani700`,
+    follow: "What kind of problems does Shweta most enjoy solving?",
+  },
+  stack: {
+    text: `Tools I actually use, not collect:
+- **GenAI** — LLM agents, RAG, function calling, ReAct; LangGraph, LangChain, Google ADK; GPT-4o, Gemini, Llama 3.3; ChromaDB for vectors
+- **Data engineering** — Apache Spark, NiFi, Airflow; CDC and real-time streaming; Snowflake, Databricks, Delta Lake
+- **Cloud & shipping** — Azure Data Factory & Functions, AWS S3/Lambda/EC2; FastAPI, Docker, Kubernetes, ArgoCD, GitHub Actions
+- **Languages** — Python, SQL, PySpark
+Proof beats lists — every case file on this site runs on a slice of this stack: https://github.com/rani700`,
+    follow: "Which parts of this stack has Shweta run in production?",
+  },
+  roots: {
+    text: `Before the LLM era, there was the lab. My integrated **B.Tech (CS) + M.Tech (AI & Robotics)** from Gautam Buddha University — CGPA 8.22 / 8.36 — came with a research streak: a peer-reviewed **Springer** paper, *Data Imputation in WSN using Deep Learning* (ICDAM).
+The applied side of that era is still on my GitHub: lung-field segmentation on chest X-rays (my most-starred repo), 102-class molecule classification with CNNs and transfer learning, time-series forecasting.
+Paper: https://link.springer.com/book/10.1007/978-981-15-8335-3 · X-ray work: https://github.com/rani700/xray`,
+    follow: "How does her classical ML background show up in how she builds LLM systems?",
+  },
+  contact: {
+    text: `The fastest channel is email: [shwetanimesh700@gmail.com](mailto:shwetanimesh700@gmail.com) — I genuinely reply fast.
+Elsewhere: https://linkedin.com/in/shwetarani24 · https://github.com/rani700 · https://youtube.com/@ShwetaNimesh
+If you're sitting on an interesting problem in data or GenAI, I'd love to hear about it.`,
+  },
 };
 
 // question strings (chips + ASK buttons) → topic
@@ -75,6 +101,10 @@ const CANNED_BY_QUESTION = {
   "Walk me through EasyForm's LangGraph state machine.": "easyform",
   "How does the agentic Databricks platform turn English into Spark SQL safely?": "databricks",
   "Explain the real-time NiFi to Snowflake streaming pipeline.": "streaming",
+  "Who is Shweta?": "about",
+  "What's in Shweta's toolbox?": "stack",
+  "What are Shweta's research roots?": "roots",
+  "How do I get in touch with Shweta?": "contact",
 };
 
 const WAIT_LINES = [
@@ -117,7 +147,7 @@ function esc(s) {
 function inline(s) {
   return s
     .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+    .replace(/\[([^\]]+)\]\((mailto:[^\s)]+|https?:\/\/[^\s)]+)\)/g,
       '<a href="$2" target="_blank" rel="noopener">$1</a>')
     .replace(/(^|[^"(\w])(https?:\/\/[^\s<)]+[^\s<).,!?])/g,
       '$1<a href="$2" target="_blank" rel="noopener">$2</a>')
@@ -381,6 +411,10 @@ const SLUG_TO_QUESTION = {
   easyform: "Walk me through EasyForm's LangGraph state machine.",
   databricks: "How does the agentic Databricks platform turn English into Spark SQL safely?",
   streaming: "Explain the real-time NiFi to Snowflake streaming pipeline.",
+  about: "Who is Shweta?",
+  stack: "What's in Shweta's toolbox?",
+  roots: "What are Shweta's research roots?",
+  contact: "How do I get in touch with Shweta?",
   casefiles: "__drawer__",
 };
 const slug = decodeURIComponent(location.hash.slice(1)).toLowerCase();
